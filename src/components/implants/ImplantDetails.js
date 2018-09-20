@@ -5,41 +5,13 @@ import PropTypes from 'prop-types';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
 import { firestoreConnect } from 'react-redux-firebase';
-import ReactPDF, { Document, Page, Text, View, StyleSheet  } from '@react-pdf/renderer';
 
+import PrintButton from './PrintButton';
 import './Implants.css';
 
 class ImplantDetails extends Component {
   render() {
     const { implant } = this.props;
-    // Create styles
-    const styles = StyleSheet.create({
-      page: {
-        flexDirection: 'row',
-        backgroundColor: '#E4E4E4'
-      },
-      section: {
-        margin: 10,
-        padding: 10,
-        flexGrow: 1
-      }
-    });
-    const MyDocument = () => (
-      <Document>
-        <Page size="A4" style={styles.page}>
-          <View style={styles.section}>
-            <Text>Section #1</Text>
-          </View>
-          <View style={styles.section}>
-            <Text>Section #2</Text>
-          </View>
-        </Page>
-      </Document>
-    );
-    const downloadDocument = () =>{
-      console.log('se ejecuto');
-      ReactPDF.render(<MyDocument />, '/example.pdf');
-    }
     if(implant) {
       return (
         <div>
@@ -47,10 +19,8 @@ class ImplantDetails extends Component {
             className="badge badge-secondary">
             <i className="fas fa-arrow-circle-left" />Atras
           </Link>
-          <button className="btn btn-outline-info" onClick={downloadDocument}>
-            Descargar
-          </button>
-          <div className="card">
+          <PrintButton id={"detailsPacient"} label={"Descargar Archivo"} />
+          <div className="card" id={"detailsPacient"}>
             <div className="card-header">
                 <h2>{implant.nombre} {implant.apellido}</h2>
             </div>
