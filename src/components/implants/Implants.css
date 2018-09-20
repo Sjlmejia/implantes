@@ -1,0 +1,31 @@
+.container-pacientes-header {
+  display: flex;
+}
+.pacient{
+  flex: 1;
+  padding-bottom: 10px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+.pacient-action{
+  flex: .5;
+  padding-bottom: 10px;
+}
+.description{
+  flex: 1;
+  display: flex;
+}
+.row-detail{
+  align-items: center;
+  height: 35px;
+}
+.title-detail{
+  margin: 0;
+}
+.item-detail{
+  padding-left: 10px;
+}
+.row-detail-sign{
+  justify-content: center;
+}
